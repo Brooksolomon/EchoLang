@@ -15,6 +15,7 @@ namespace EchoLang
             this.Location = theme.MAINPANELPOINT;
             this.Size = theme.MAINPANELSIZE;
             this.BackColor = theme.MAINPANELBACKGROUND;
+            this.BackgroundImage = Properties.Resources.bg;
 
             generateLangs();      
 
@@ -24,7 +25,7 @@ namespace EchoLang
             Controls.Clear();
             Label header = new Label();
             header.Text = "Languages you are currently learning";
-            header.ForeColor = Color.White;
+            header.ForeColor = theme.MainTextColor;
             header.Font = new Font("Arial", 16, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             header.Location = new Point(30, 30);
             header.Size = new Size(400, 40);

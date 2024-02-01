@@ -16,6 +16,7 @@ namespace EchoLang
             this.Location = theme.MAINPANELPOINT;
             this.Size = theme.MAINPANELSIZE;
             this.BackColor = theme.MAINPANELBACKGROUND;
+            this.BackgroundImage = Properties.Resources.bg;
 
             //search Bar
             
@@ -43,19 +44,19 @@ namespace EchoLang
             {
                 Controls.RemoveAt(i);
             }
-            List<Dictionary<string, string>> holdUsers = database.fetchAllUsers();
+            List<User> holdUsers = database.fetchAllUsers();
             foreach (var i in holdUsers)
             {
-                if (i["firstName"].ToLower().Contains(text.ToLower()) && int.Parse(i["userId"]) != database.stateManager)
+                if ((i.firstName.ToLower().Contains(text.ToLower()) || i.lastName.ToLower().Contains(text.ToLower())) && i.id != database.stateManager)
                 {
                     if (!second)
                     {
-                        Panel temp1 = theme.GenerateUserCard(i["firstName"] + ' ' + i["lastName"], '@' + i["username"], 80, start);
+                        Panel temp1 = theme.GenerateUserCard(i.firstName + ' ' + i.lastName, '@' + i.username,i.level, 80, start);
                         Controls.Add(temp1);
                     }
                     else
                     {
-                        Panel temp1 = theme.GenerateUserCard(i["firstName"] + ' ' + i["lastName"], '@' + i["username"], 420, start);
+                        Panel temp1 = theme.GenerateUserCard(i.firstName + ' ' + i.lastName, '@' + i.username,i.level, 420, start);
                         Controls.Add(temp1);
                         start += 100;
                     }

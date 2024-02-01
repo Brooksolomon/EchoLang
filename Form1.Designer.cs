@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges17 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges18 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges15 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges16 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
@@ -46,12 +46,9 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges13 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges14 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges15 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges16 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             btnProfile = new Guna.UI2.WinForms.Guna2Button();
             btnCourses = new Guna.UI2.WinForms.Guna2Button();
-            btnLessons = new Guna.UI2.WinForms.Guna2Button();
             btnLogout = new Guna.UI2.WinForms.Guna2Button();
             btnDict = new Guna.UI2.WinForms.Guna2Button();
             btnLanguages = new Guna.UI2.WinForms.Guna2Button();
@@ -65,40 +62,44 @@
             // 
             // guna2Panel1
             // 
-            guna2Panel1.BackColor = Color.DarkOrange;
+            guna2Panel1.BackColor = Color.Orange;
             guna2Panel1.Controls.Add(btnProfile);
             guna2Panel1.Controls.Add(btnCourses);
-            guna2Panel1.Controls.Add(btnLessons);
             guna2Panel1.Controls.Add(btnLogout);
             guna2Panel1.Controls.Add(btnDict);
             guna2Panel1.Controls.Add(btnLanguages);
             guna2Panel1.Controls.Add(btnUsers);
             guna2Panel1.Controls.Add(btnHome);
-            guna2Panel1.CustomizableEdges = customizableEdges17;
+            guna2Panel1.CustomizableEdges = customizableEdges15;
             guna2Panel1.Location = new Point(0, 0);
             guna2Panel1.Name = "guna2Panel1";
-            guna2Panel1.ShadowDecoration.CustomizableEdges = customizableEdges18;
-            guna2Panel1.Size = new Size(217, 815);
+            guna2Panel1.ShadowDecoration.CustomizableEdges = customizableEdges16;
+            guna2Panel1.Size = new Size(245, 815);
             guna2Panel1.TabIndex = 4;
             guna2Panel1.Paint += guna2Panel1_Paint;
             // 
             // btnProfile
             // 
             btnProfile.BackColor = Color.DarkOrange;
+            btnProfile.BorderColor = Color.White;
+            btnProfile.BorderRadius = 10;
             btnProfile.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
-            btnProfile.CheckedState.FillColor = Color.FromArgb(78, 165, 217);
+            btnProfile.CheckedState.BorderColor = Color.Black;
+            btnProfile.CheckedState.FillColor = Color.Black;
+            btnProfile.CheckedState.ForeColor = Color.White;
             btnProfile.CustomizableEdges = customizableEdges1;
             btnProfile.DisabledState.BorderColor = Color.DarkGray;
             btnProfile.DisabledState.CustomBorderColor = Color.DarkGray;
             btnProfile.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             btnProfile.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            btnProfile.FillColor = Color.DarkOrange;
+            btnProfile.FillColor = Color.White;
             btnProfile.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            btnProfile.ForeColor = Color.White;
-            btnProfile.HoverState.FillColor = Color.FromArgb(78, 165, 217);
+            btnProfile.ForeColor = Color.Black;
+            btnProfile.HoverState.FillColor = Color.FromArgb(1, 1, 4);
+            btnProfile.HoverState.ForeColor = Color.FromArgb(234, 233, 252);
             btnProfile.Image = (Image)resources.GetObject("btnProfile.Image");
             btnProfile.ImageAlign = HorizontalAlignment.Left;
-            btnProfile.Location = new Point(0, 549);
+            btnProfile.Location = new Point(12, 538);
             btnProfile.Name = "btnProfile";
             btnProfile.ShadowDecoration.CustomizableEdges = customizableEdges2;
             btnProfile.Size = new Size(217, 58);
@@ -110,20 +111,25 @@
             // btnCourses
             // 
             btnCourses.BackColor = Color.DarkOrange;
+            btnCourses.BorderColor = Color.White;
+            btnCourses.BorderRadius = 10;
             btnCourses.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
-            btnCourses.CheckedState.FillColor = Color.FromArgb(78, 165, 217);
+            btnCourses.CheckedState.BorderColor = Color.Black;
+            btnCourses.CheckedState.FillColor = Color.Black;
+            btnCourses.CheckedState.ForeColor = Color.White;
             btnCourses.CustomizableEdges = customizableEdges3;
             btnCourses.DisabledState.BorderColor = Color.DarkGray;
             btnCourses.DisabledState.CustomBorderColor = Color.DarkGray;
             btnCourses.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             btnCourses.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            btnCourses.FillColor = Color.DarkOrange;
+            btnCourses.FillColor = Color.White;
             btnCourses.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            btnCourses.ForeColor = Color.White;
-            btnCourses.HoverState.FillColor = Color.FromArgb(78, 165, 217);
+            btnCourses.ForeColor = Color.Black;
+            btnCourses.HoverState.FillColor = Color.FromArgb(1, 1, 4);
+            btnCourses.HoverState.ForeColor = Color.FromArgb(234, 233, 252);
             btnCourses.Image = (Image)resources.GetObject("btnCourses.Image");
             btnCourses.ImageAlign = HorizontalAlignment.Left;
-            btnCourses.Location = new Point(0, 485);
+            btnCourses.Location = new Point(12, 462);
             btnCourses.Name = "btnCourses";
             btnCourses.ShadowDecoration.CustomizableEdges = customizableEdges4;
             btnCourses.Size = new Size(217, 58);
@@ -132,50 +138,26 @@
             btnCourses.TextAlign = HorizontalAlignment.Left;
             btnCourses.Click += btnCourses_Click;
             // 
-            // btnLessons
-            // 
-            btnLessons.BackColor = Color.DarkOrange;
-            btnLessons.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
-            btnLessons.CheckedState.FillColor = Color.FromArgb(78, 165, 217);
-            btnLessons.CustomizableEdges = customizableEdges5;
-            btnLessons.DisabledState.BorderColor = Color.DarkGray;
-            btnLessons.DisabledState.CustomBorderColor = Color.DarkGray;
-            btnLessons.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
-            btnLessons.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            btnLessons.FillColor = Color.DarkOrange;
-            btnLessons.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            btnLessons.ForeColor = Color.White;
-            btnLessons.HoverState.FillColor = Color.FromArgb(78, 165, 217);
-            btnLessons.Image = (Image)resources.GetObject("btnLessons.Image");
-            btnLessons.ImageAlign = HorizontalAlignment.Left;
-            btnLessons.Location = new Point(0, 421);
-            btnLessons.Name = "btnLessons";
-            btnLessons.ShadowDecoration.CustomizableEdges = customizableEdges6;
-            btnLessons.Size = new Size(217, 58);
-            btnLessons.TabIndex = 5;
-            btnLessons.Text = "lessons";
-            btnLessons.TextAlign = HorizontalAlignment.Left;
-            btnLessons.Click += btnLessons_Click;
-            // 
             // btnLogout
             // 
             btnLogout.BackColor = Color.DarkOrange;
+            btnLogout.BorderRadius = 10;
             btnLogout.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
             btnLogout.CheckedState.FillColor = Color.FromArgb(24, 46, 168);
-            btnLogout.CustomizableEdges = customizableEdges7;
+            btnLogout.CustomizableEdges = customizableEdges5;
             btnLogout.DisabledState.BorderColor = Color.DarkGray;
             btnLogout.DisabledState.CustomBorderColor = Color.DarkGray;
             btnLogout.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             btnLogout.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            btnLogout.FillColor = Color.DarkOrange;
+            btnLogout.FillColor = Color.OrangeRed;
             btnLogout.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            btnLogout.ForeColor = Color.White;
+            btnLogout.ForeColor = Color.Black;
             btnLogout.HoverState.FillColor = Color.FromArgb(255, 128, 128);
             btnLogout.Image = (Image)resources.GetObject("btnLogout.Image");
             btnLogout.ImageAlign = HorizontalAlignment.Left;
-            btnLogout.Location = new Point(3, 715);
+            btnLogout.Location = new Point(12, 717);
             btnLogout.Name = "btnLogout";
-            btnLogout.ShadowDecoration.CustomizableEdges = customizableEdges8;
+            btnLogout.ShadowDecoration.CustomizableEdges = customizableEdges6;
             btnLogout.Size = new Size(217, 58);
             btnLogout.TabIndex = 4;
             btnLogout.Text = "logout";
@@ -185,47 +167,57 @@
             // btnDict
             // 
             btnDict.BackColor = Color.DarkOrange;
+            btnDict.BorderColor = Color.White;
+            btnDict.BorderRadius = 10;
             btnDict.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
-            btnDict.CheckedState.FillColor = Color.FromArgb(78, 165, 217);
-            btnDict.CustomizableEdges = customizableEdges9;
+            btnDict.CheckedState.BorderColor = Color.Black;
+            btnDict.CheckedState.FillColor = Color.Black;
+            btnDict.CheckedState.ForeColor = Color.White;
+            btnDict.CustomizableEdges = customizableEdges7;
             btnDict.DisabledState.BorderColor = Color.DarkGray;
             btnDict.DisabledState.CustomBorderColor = Color.DarkGray;
             btnDict.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             btnDict.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            btnDict.FillColor = Color.DarkOrange;
+            btnDict.FillColor = Color.White;
             btnDict.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            btnDict.ForeColor = Color.White;
-            btnDict.HoverState.FillColor = Color.FromArgb(78, 165, 217);
+            btnDict.ForeColor = Color.Black;
+            btnDict.HoverState.FillColor = Color.FromArgb(1, 1, 4);
+            btnDict.HoverState.ForeColor = Color.FromArgb(234, 233, 252);
             btnDict.Image = (Image)resources.GetObject("btnDict.Image");
             btnDict.ImageAlign = HorizontalAlignment.Left;
-            btnDict.Location = new Point(3, 229);
+            btnDict.Location = new Point(12, 239);
             btnDict.Name = "btnDict";
-            btnDict.ShadowDecoration.CustomizableEdges = customizableEdges10;
-            btnDict.Size = new Size(214, 58);
+            btnDict.ShadowDecoration.CustomizableEdges = customizableEdges8;
+            btnDict.Size = new Size(217, 58);
             btnDict.TabIndex = 3;
-            btnDict.Text = "dictionary";
+            btnDict.Text = "phrases";
             btnDict.TextAlign = HorizontalAlignment.Left;
             btnDict.Click += btnDict_Click;
             // 
             // btnLanguages
             // 
             btnLanguages.BackColor = Color.DarkOrange;
+            btnLanguages.BorderColor = Color.White;
+            btnLanguages.BorderRadius = 10;
             btnLanguages.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
-            btnLanguages.CheckedState.FillColor = Color.FromArgb(78, 165, 217);
-            btnLanguages.CustomizableEdges = customizableEdges11;
+            btnLanguages.CheckedState.BorderColor = Color.Black;
+            btnLanguages.CheckedState.FillColor = Color.Black;
+            btnLanguages.CheckedState.ForeColor = Color.White;
+            btnLanguages.CustomizableEdges = customizableEdges9;
             btnLanguages.DisabledState.BorderColor = Color.DarkGray;
             btnLanguages.DisabledState.CustomBorderColor = Color.DarkGray;
             btnLanguages.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             btnLanguages.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            btnLanguages.FillColor = Color.DarkOrange;
+            btnLanguages.FillColor = Color.White;
             btnLanguages.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            btnLanguages.ForeColor = Color.White;
-            btnLanguages.HoverState.FillColor = Color.FromArgb(78, 165, 217);
+            btnLanguages.ForeColor = Color.Black;
+            btnLanguages.HoverState.FillColor = Color.FromArgb(1, 1, 4);
+            btnLanguages.HoverState.ForeColor = Color.FromArgb(234, 233, 252);
             btnLanguages.Image = (Image)resources.GetObject("btnLanguages.Image");
             btnLanguages.ImageAlign = HorizontalAlignment.Left;
-            btnLanguages.Location = new Point(0, 357);
+            btnLanguages.Location = new Point(12, 389);
             btnLanguages.Name = "btnLanguages";
-            btnLanguages.ShadowDecoration.CustomizableEdges = customizableEdges12;
+            btnLanguages.ShadowDecoration.CustomizableEdges = customizableEdges10;
             btnLanguages.Size = new Size(217, 58);
             btnLanguages.TabIndex = 2;
             btnLanguages.Text = "languages";
@@ -235,22 +227,27 @@
             // btnUsers
             // 
             btnUsers.BackColor = Color.DarkOrange;
+            btnUsers.BorderColor = Color.White;
+            btnUsers.BorderRadius = 10;
             btnUsers.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
-            btnUsers.CheckedState.FillColor = Color.FromArgb(78, 165, 217);
-            btnUsers.CustomizableEdges = customizableEdges13;
+            btnUsers.CheckedState.BorderColor = Color.Black;
+            btnUsers.CheckedState.FillColor = Color.Black;
+            btnUsers.CheckedState.ForeColor = Color.White;
+            btnUsers.CustomizableEdges = customizableEdges11;
             btnUsers.DisabledState.BorderColor = Color.DarkGray;
             btnUsers.DisabledState.CustomBorderColor = Color.DarkGray;
             btnUsers.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             btnUsers.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            btnUsers.FillColor = Color.DarkOrange;
+            btnUsers.FillColor = Color.White;
             btnUsers.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            btnUsers.ForeColor = Color.White;
-            btnUsers.HoverState.FillColor = Color.FromArgb(78, 165, 217);
+            btnUsers.ForeColor = Color.Black;
+            btnUsers.HoverState.FillColor = Color.FromArgb(1, 1, 4);
+            btnUsers.HoverState.ForeColor = Color.FromArgb(234, 233, 252);
             btnUsers.Image = (Image)resources.GetObject("btnUsers.Image");
             btnUsers.ImageAlign = HorizontalAlignment.Left;
-            btnUsers.Location = new Point(0, 293);
+            btnUsers.Location = new Point(12, 314);
             btnUsers.Name = "btnUsers";
-            btnUsers.ShadowDecoration.CustomizableEdges = customizableEdges14;
+            btnUsers.ShadowDecoration.CustomizableEdges = customizableEdges12;
             btnUsers.Size = new Size(217, 58);
             btnUsers.TabIndex = 1;
             btnUsers.Text = "users";
@@ -261,23 +258,28 @@
             // 
             btnHome.BackColor = Color.DarkOrange;
             btnHome.BackgroundImageLayout = ImageLayout.None;
+            btnHome.BorderColor = Color.White;
+            btnHome.BorderRadius = 10;
             btnHome.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
-            btnHome.CheckedState.FillColor = Color.FromArgb(78, 165, 217);
-            btnHome.CustomizableEdges = customizableEdges15;
+            btnHome.CheckedState.BorderColor = Color.Black;
+            btnHome.CheckedState.FillColor = Color.Black;
+            btnHome.CheckedState.ForeColor = Color.White;
+            btnHome.CustomizableEdges = customizableEdges13;
             btnHome.DisabledState.BorderColor = Color.DarkGray;
             btnHome.DisabledState.CustomBorderColor = Color.DarkGray;
             btnHome.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             btnHome.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            btnHome.FillColor = Color.DarkOrange;
+            btnHome.FillColor = Color.White;
             btnHome.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            btnHome.ForeColor = Color.White;
-            btnHome.HoverState.FillColor = Color.FromArgb(78, 165, 217);
+            btnHome.ForeColor = Color.Black;
+            btnHome.HoverState.FillColor = Color.FromArgb(1, 1, 4);
+            btnHome.HoverState.ForeColor = Color.FromArgb(234, 233, 252);
             btnHome.Image = (Image)resources.GetObject("btnHome.Image");
             btnHome.ImageAlign = HorizontalAlignment.Left;
-            btnHome.Location = new Point(3, 165);
+            btnHome.Location = new Point(12, 164);
             btnHome.Name = "btnHome";
-            btnHome.ShadowDecoration.CustomizableEdges = customizableEdges16;
-            btnHome.Size = new Size(214, 58);
+            btnHome.ShadowDecoration.CustomizableEdges = customizableEdges14;
+            btnHome.Size = new Size(217, 58);
             btnHome.TabIndex = 0;
             btnHome.Text = "home";
             btnHome.TextAlign = HorizontalAlignment.Left;
@@ -287,13 +289,14 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.FromArgb(46, 51, 73);
+            BackColor = Color.FromArgb(1, 1, 4);
             ClientSize = new Size(1000, 815);
             Controls.Add(guna2Panel1);
             FormBorderStyle = FormBorderStyle.FixedSingle;
+            MaximizeBox = false;
             Name = "Form1";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Form1";
+            Text = "EchoLang";
             Load += Form1_Load;
             guna2Panel1.ResumeLayout(false);
             ResumeLayout(false);
@@ -312,7 +315,6 @@
         private Guna.UI2.WinForms.Guna2Button guna2Button5;
         private Guna.UI2.WinForms.Guna2Button btnProfile;
         private Guna.UI2.WinForms.Guna2Button btnCourses;
-        private Guna.UI2.WinForms.Guna2Button btnLessons;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
         private Guna.UI2.WinForms.Guna2Button guna2Button1;

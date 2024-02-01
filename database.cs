@@ -11,17 +11,17 @@ namespace EchoLang
     {
         public static int stateManager=9;
         public static string connectionString = "Data Source=DESKTOP-BP45MS8;Initial Catalog=EchoLang;Integrated Security=True;";
-        public static List<Dictionary<string,string>> fetchAllUsers()
+        public static List<User> fetchAllUsers()
         {
             
-            List<Dictionary<string, string>> listOfDictionaries = new List<Dictionary<string, string>>();
+            List<User> listOfDictionaries = new List<User>();
 
             
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
 
-                using (SqlCommand command = new SqlCommand("select * from users", connection))
+                using (SqlCommand command = new SqlCommand("select users.UserId,users.Username,users.Password,users.Email,users.FirstName,users.LastName,users.DateOfBirth,UserStats.level \r\nfrom users\r\nleft join UserStats\r\non users.UserID = UserStats.UserID\r\n", connection))
                 {
                     
                     // Execute the query and get a SqlDataReader
@@ -36,17 +36,7 @@ namespace EchoLang
                             // Iterate through the rows
                             while (reader.Read())
                             {
-                                Dictionary<string,string> temp = new Dictionary<string, string>();
-                                // Access data using column names or indices
-                                temp["userId"] = reader.GetInt32(0).ToString();
-                                temp["username"] = reader.GetString(1);
-                                temp["password"] = reader.GetString(2);
-                                temp["email"] = reader.GetString(3);
-                                temp["firstName"] = reader.GetString(4);
-                                temp["lastName"] = reader.GetString(5);
-                                temp["dob"] = reader.GetDateTime(6).ToString();
-                                // Process the data (print to console in this example)
-
+                                User temp = new User(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), reader.GetString(3), reader.GetString(4), reader.GetString(5), reader.GetDateTime(6),reader.GetInt32(7));
                                 listOfDictionaries.Add(temp);
                             }
 
@@ -61,14 +51,14 @@ namespace EchoLang
                 }
             }
         }
-        public static Dictionary <string,string> fetchSpecificUser(int id)
+        public static User fetchSpecificUser(int id)
         {
-            Dictionary<string,string> mydict = new Dictionary<string,string>();
+            User mydict = null;
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
 
-                using (SqlCommand command = new SqlCommand("select * from users where UserID = @id", connection))
+                using (SqlCommand command = new SqlCommand("select users.UserId,users.Username,users.Password,users.Email,users.FirstName,users.LastName,users.DateOfBirth,UserStats.level \r\nfrom users\r\nleft join UserStats\r\non users.UserID = UserStats.UserID\r\nwhere users.UserID = @id", connection))
                 {
                     command.Parameters.AddWithValue("id", id);
 
@@ -84,16 +74,7 @@ namespace EchoLang
                             // Iterate through the rows
                             while (reader.Read())
                             {
-                                Dictionary<string, string> temp = new Dictionary<string, string>();
-                                // Access data using column names or indices
-                                temp["userId"] = reader.GetInt32(0).ToString();
-                                temp["username"] = reader.GetString(1);
-                                temp["password"] = reader.GetString(2);
-                                temp["email"] = reader.GetString(3);
-                                temp["firstName"] = reader.GetString(4);
-                                temp["lastName"] = reader.GetString(5);
-                                temp["dob"] = reader.GetDateTime(6).ToString();
-                                // Process the data (print to console in this example)
+                                User temp = new User(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), reader.GetString(3), reader.GetString(4), reader.GetString(5), reader.GetDateTime(6), reader.GetInt32(7));
                                 mydict = temp;
                             }
 
@@ -331,6 +312,30 @@ namespace EchoLang
                 }
             }
         }
+        public static List<Course> fetchAllCourses()
+        {
+            List<Course> listOfCourses = new List<Course>();
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+
+                string query = "SELECT * from Course  order by Level";
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            // Assuming the language is stored in a column named 'Language'
+                            Course temp = new Course(int.Parse(reader["CourseID"].ToString()), reader["Title"].ToString(), reader["Description"].ToString(), int.Parse(reader["LanguageID"].ToString()), int.Parse(reader["Level"].ToString()));
+                            listOfCourses.Add(temp);
+
+                        }
+                    }
+                }
+            }
+            return listOfCourses;
+        }
         public static List<Course> fetchCourseByLanguage(int langid)
         {
             List<Course> listOfCourses = new List<Course>();
@@ -348,7 +353,7 @@ namespace EchoLang
                         while (reader.Read())
                         {
                             // Assuming the language is stored in a column named 'Language'
-                            Course temp = new Course(int.Parse(reader["CourseID"].ToString()), reader["Title"].ToString(), reader["Description"].ToString(), int.Parse(reader["LanguageID"].ToString()), int.Parse(reader["Level"].ToString()), float.Parse(reader["price"].ToString()));
+                            Course temp = new Course(int.Parse(reader["CourseID"].ToString()), reader["Title"].ToString(), reader["Description"].ToString(), int.Parse(reader["LanguageID"].ToString()), int.Parse(reader["Level"].ToString()));
                             listOfCourses.Add(temp);
 
                         }
@@ -429,6 +434,34 @@ namespace EchoLang
                     command.ExecuteNonQuery();
                 }
             }
+        }
+        public static List<Phrase> fetchPhrasesByLanguage(int language)
+        {
+            List<Phrase> listOfPhrases = new List<Phrase>();
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+
+                string query = "SELECT top 10 * from Phrases where LanguageID = @language order by NEWID()";
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@language", language);
+
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            // Assuming the language is stored in a column named 'Language'
+                            Phrase temp = new Phrase(int.Parse(reader["PhraseID"].ToString()), reader["Phrase"].ToString(), reader["Meaning"].ToString(), int.Parse(reader["LanguageID"].ToString()));
+                            listOfPhrases.Add(temp);
+
+                        }
+                    }
+
+                }
+            }
+            return listOfPhrases;
         }
 
     }

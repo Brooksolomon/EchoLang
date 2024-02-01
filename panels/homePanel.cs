@@ -18,6 +18,7 @@ namespace EchoLang
             this.Location = theme.MAINPANELPOINT;
             this.Size = theme.MAINPANELSIZE;
             this.BackColor = theme.MAINPANELBACKGROUND;
+            this.AutoScroll = true;
             generateContent();
 
 
@@ -27,13 +28,20 @@ namespace EchoLang
         {
             Controls.Clear();
 
+            Panel choicePanel = new Panel();
+            choicePanel.BackColor = theme.MAINPANELBACKGROUND;
+            choicePanel.AutoScroll = true;
+            choicePanel.Size = new Size(800, 140);
+            choicePanel.Location = new Point(0, 0);
+
+
             Label header = new Label();
             header.Text = "Welcome to EchoLang";
-            header.ForeColor = Color.White;
+            header.ForeColor = theme.MainTextColor;
             header.Font = new Font("Arial", 16, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             header.Location = new Point(30, 30);
             header.Size = new Size(400, 40);
-            Controls.Add(header);
+            choicePanel.Controls.Add(header);
 
             List<Language> languages = database.fetchLeanringLanguages();
             int startx = 30;
@@ -53,13 +61,14 @@ namespace EchoLang
                 p1.Size = new Size(800, 670);
                 p1.Location = new Point(0, 140);
                 p1.Visible = false;
+                p1.BackgroundImage = Properties.Resources.bg;
                
 
                 int starty = 20;
                 List<Course> courses = database.fetchCourseByLanguage(language.id);
                 foreach (Course course in courses)
                 {
-                    Guna2Panel tp = theme.GenerateCourseCards(course, 50, starty);
+                    Guna2Panel tp = theme.GenerateCourseCards(course, 100, starty);
                     tp.Click += (o, e) => { openCourse(course.id); };
                     p1.Controls.Add(tp);
 
@@ -80,12 +89,13 @@ namespace EchoLang
 
                 panels.Add(p1);
                 buttons.Add(button);
-                Controls.Add(button);
+                choicePanel.Controls.Add(button);
                 Controls.Add(p1);
 
                 startx += button.Width + 20;
 
             }
+            Controls.Add(choicePanel);
         }
         public void switchHandler(string index)
         {
@@ -102,7 +112,7 @@ namespace EchoLang
                     else
                     {
                         panels[i].Visible = false;
-                        buttons[i].ForeColor = Color.White;
+                        buttons[i].ForeColor = theme.MainTextColor;
                         buttons[i].FillColor = theme.MAINPANELBACKGROUND;
                     }
                 }
@@ -114,14 +124,14 @@ namespace EchoLang
             {
 
                 panels[i].Visible = false;
-                buttons[i].ForeColor = Color.White;
+                buttons[i].ForeColor = theme.MainTextColor;
                 buttons[i].FillColor = theme.MAINPANELBACKGROUND;
 
             }
 
             Panel p1 = new Panel();
             panels.Add(p1);
-            buttons.Add(theme.GenerateButton("skip", 0, 0));
+           buttons.Add(theme.GenerateButton("skip", 0, 0));
             p1.AutoScroll = true;
             p1.Size = new Size(800, 670);
             p1.Location = new Point(0, 140);
@@ -132,7 +142,7 @@ namespace EchoLang
             int score = 0;
             int answered = 0;
             Guna2Button finButton = theme.GenerateButton("Finish", 600, starty);
-            //finButton.Enabled = false;
+            finButton.Enabled = false;
             foreach (Question question in list)
             {
                 Guna2Panel panel = new Guna2Panel();
@@ -141,13 +151,14 @@ namespace EchoLang
                 panel.BorderColor = theme.BUTTONBACKCOLOR;
                 panel.BorderThickness = 3;
 
-                Label label = new Label();
-                label.Text = index.ToString() + ", " + question.quest;
-                label.Size = new Size(200, 50);
-                label.Location = new Point(20, 20);
-                label.ForeColor = Color.White;
-                label.Font = new Font("Arial", 14, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
 
+                Label label = new Label();
+                label.Text =index.ToString() + "," + question.quest ;
+                label.Size = new Size(500, 60);
+                label.Location = new Point(20, 20);
+                label.ForeColor = theme.MainTextColor;
+                label.Font = new Font("Arial", 14, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+                
                 Guna2Button button = theme.GenerateButton("Check", 400, 120);
 
                 Random random = new Random();
@@ -158,7 +169,7 @@ namespace EchoLang
                     label1.Text = question.answer;
                     label1.Size = new Size(150, 50);
                     label1.Location = new Point(220, 90);
-                    label1.ForeColor = Color.White;
+                    label1.ForeColor = theme.MainTextColor;
                     label1.Font = new Font("Arial", 14, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
                     label1.Visible = false;
 
@@ -170,7 +181,7 @@ namespace EchoLang
                         answered += 1;
                         if (question.answer.ToLower() == textBox.Text.ToLower().Trim())
                         {
-                            panel.BackColor = theme.BUTTONBACKCOLOR;
+                            panel.BackColor = Color.GreenYellow;
                             score += 1;
                         }
                         else
@@ -210,7 +221,7 @@ namespace EchoLang
                     Guna2GroupBox g1 = new Guna2GroupBox();
                     g1.FillColor = theme.MAINPANELBACKGROUND;
                     g1.Size= new Size(350, 100);
-                    g1.Location = new Point(50,40);
+                    g1.Location = new Point(50,45);
                     g1.BorderThickness = 0;
                     g1.CustomBorderThickness = new Padding(0,0,0,0);
                     
@@ -226,7 +237,7 @@ namespace EchoLang
                     for (int i = 1; i <= 4; i++)
                     {
                         Guna2RadioButton radio = new Guna2RadioButton();
-                        radio.ForeColor = Color.White;
+                        radio.ForeColor = theme.MainTextColor;
                         radio.Size = new Size(100, 40);
                         radio.CheckedState.InnerColor = Color.Yellow;
                         
@@ -264,8 +275,8 @@ namespace EchoLang
                                 answered += 1;
                                 if (d.Text == question.answer)
                                 {
-                                    panel.BackColor = theme.BUTTONBACKCOLOR;
-                                    g1.FillColor = theme.BUTTONBACKCOLOR;
+                                    panel.BackColor = Color.GreenYellow;
+                                    g1.FillColor = Color.GreenYellow;
                                     score += 1;
                                     
                                 }
@@ -273,7 +284,7 @@ namespace EchoLang
                                 {
                                     panel.BackColor = Color.Red;
                                     g1.FillColor = Color.Red;
-                                    choices[ap - 1].BackColor = theme.BUTTONBACKCOLOR;
+                                    choices[ap - 1].BackColor = Color.GreenYellow;
                                     choices[ap - 1].ForeColor = Color.Black;
 
                                 }
@@ -313,7 +324,7 @@ namespace EchoLang
             {
 
                 panels[i].Visible = false;
-                buttons[i].ForeColor = Color.White;
+                buttons[i].ForeColor = theme.MainTextColor;
                 buttons[i].FillColor = theme.MAINPANELBACKGROUND;
 
             }

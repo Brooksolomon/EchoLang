@@ -30,6 +30,7 @@ namespace EchoLang
             this.Location = theme.MAINPANELPOINT;
             this.Size = theme.MAINPANELSIZE;
             this.BackColor = theme.MAINPANELBACKGROUND;
+            this.BackgroundImage = Properties.Resources.bg;
 
 
 
@@ -39,13 +40,13 @@ namespace EchoLang
             emailBox.Enabled = false;
             dobBox.Enabled = false;
             passBox.Enabled = false;
-            Dictionary<string, string> myDictionary = database.fetchSpecificUser(database.stateManager);
-            firstBox.Text = myDictionary["firstName"];
-            userBox.Text = myDictionary["username"];
-            lastBox.Text = myDictionary["lastName"];
-            emailBox.Text = myDictionary["email"];
-            dobBox.Text = myDictionary["dob"];
-            passBox.Text = myDictionary["password"];
+            User myDictionary = database.fetchSpecificUser(database.stateManager);
+            firstBox.Text = myDictionary.firstName;
+            userBox.Text = myDictionary.username;
+            lastBox.Text = myDictionary.lastName;
+            emailBox.Text = myDictionary.email;
+            dobBox.Text = myDictionary.dob.ToString();
+            passBox.Text = myDictionary.password;
             passBox.PasswordChar = '*';
             
 
@@ -130,7 +131,6 @@ namespace EchoLang
                 emailBox.ForeColor= Color.Black;
                 toggleFeilds();
                 database.updateUser(database.stateManager,userBox.Text,passBox.Text,emailBox.Text,firstBox.Text,lastBox.Text,dobBox.Text);
-                MessageBox.Show("Changes set");
 
             }
         }

@@ -10,7 +10,6 @@ namespace EchoLang
         public dictpanel dp;
         public userspanel up;
         public languagesPanel lp;
-        public lessonsPanel lsp;
         public coursesPanel cp;
         public profilePanel pp;
 
@@ -21,7 +20,6 @@ namespace EchoLang
             dp = new dictpanel();
             up = new userspanel();
             lp = new languagesPanel();
-            lsp = new lessonsPanel();
             cp = new coursesPanel();
             pp = new profilePanel();
 
@@ -29,7 +27,6 @@ namespace EchoLang
             dp.Visible = false;
             up.Visible = false;
             lp.Visible = false;
-            lsp.Visible = false;
             cp.Visible = false;
             pp.Visible = false;
 
@@ -40,7 +37,6 @@ namespace EchoLang
             Controls.Add(dp);
             Controls.Add(up);
             Controls.Add(lp);
-            Controls.Add(lsp);
             Controls.Add(cp);
             Controls.Add(pp);
 
@@ -74,40 +70,42 @@ namespace EchoLang
             dp.Visible = false;
             up.Visible = false;
             lp.Visible = false;
-            lsp.Visible = false;
             cp.Visible = false;
             pp.Visible = false;
         }
 
         private void btnDict_Click(object sender, EventArgs e)
         {
+            Controls.Remove(dp);
+            dp = new dictpanel();
+            Controls.Add(dp);
             hp.Visible = false;
-            dp.Visible = true;
             up.Visible = false;
             lp.Visible = false;
-            lsp.Visible = false;
             cp.Visible = false;
             pp.Visible = false;
         }
 
         private void btnUsers_Click(object sender, EventArgs e)
         {
+            Controls.Remove(up);
+            up = new userspanel();
+            Controls.Add(up);
             hp.Visible = false;
             dp.Visible = false;
-            up.Visible = true;
             lp.Visible = false;
-            lsp.Visible = false;
             cp.Visible = false;
             pp.Visible = false;
         }
 
         private void btnLanguages_Click(object sender, EventArgs e)
         {
+            Controls.Remove(lp);
+            lp = new languagesPanel();
+            Controls.Add(lp);
             hp.Visible = false;
             dp.Visible = false;
             up.Visible = false;
-            lp.Visible = true;
-            lsp.Visible = false;
             cp.Visible = false;
             pp.Visible = false;
         }
@@ -118,31 +116,32 @@ namespace EchoLang
             dp.Visible = false;
             up.Visible = false;
             lp.Visible = false;
-            lsp.Visible = true;
             cp.Visible = false;
             pp.Visible = false;
         }
 
         private void btnCourses_Click(object sender, EventArgs e)
         {
+            Controls.Remove(cp);
+            cp = new coursesPanel();
+            Controls.Add(cp);
             hp.Visible = false;
             dp.Visible = false;
             up.Visible = false;
             lp.Visible = false;
-            lsp.Visible = false;
-            cp.Visible = true;
             pp.Visible = false;
         }
 
         private void btnProfile_Click(object sender, EventArgs e)
         {
+            Controls.Remove(pp);
+            pp = new profilePanel();
+            Controls.Add (pp);
             hp.Visible = false;
             dp.Visible = false;
             up.Visible = false;
             lp.Visible = false;
-            lsp.Visible = false;
             cp.Visible = false;
-            pp.Visible = true;
         }
 
         private void guna2Panel1_Paint(object sender, PaintEventArgs e)

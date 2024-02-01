@@ -79,7 +79,7 @@ namespace EchoLang
             this.Text = "Sign Up Form"; // Title of the form
             this.Size = new Size(500, 600); // Width and height of the form
             this.StartPosition = FormStartPosition.CenterScreen;
-            this.BackColor = Color.FromArgb(46, 51, 73);
+            this.BackColor = Color.FromArgb(255,255,255,255);
 
             ts.Size= new Size(68, 25);
             ts.Location = new Point(220, 10);
@@ -117,6 +117,9 @@ namespace EchoLang
             loginPanel.Controls.Add(loginButton);
             loginButton.Click += (o, e) => handleLogin();
 
+            passBox.PasswordChar = '*';
+            confirmPassBox.PasswordChar = '*';
+            loginPassBox.PasswordChar = '*';    
 
 
 
@@ -205,7 +208,7 @@ namespace EchoLang
                 database.insertUser(userBox.Text, passBox.Text, emailBox.Text, firstBox.Text, lastBox.Text, dobBox.Text);
                 Dictionary<string, string> md = database.fetchUserByUsername(userBox.Text);
                 database.stateManager = int.Parse( md["userId"]);
-                MessageBox.Show("Sign up successful");
+               
                 
                 Form1 newform = new Form1();
                 newform.Show();
@@ -232,7 +235,7 @@ namespace EchoLang
             {
                 loginUserBox.FillColor = Color.White;
                 loginPassBox.FillColor = Color.White;
-                MessageBox.Show("login successful");
+                
                 database.stateManager = int.Parse(md["userId"]);
                 this.Hide();
                 Form1 newform = new Form1();
